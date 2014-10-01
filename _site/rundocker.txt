@@ -1,0 +1,40 @@
+# Added alias to use 'jekyll' command easily
+$ echo alias jekyll=\'sudo docker run --rm -v \"\$PWD:/src\" -p 4000:4000 grahamc/jekyll\' >> ~/.bash_aliases
+# Create a blog in 'blog' directory
+$ jekyll new blog
+$ cd blog
+# Serve the blog on http://localhost:4000 and automatically reload on file changes
+$ jekyll serve --watch
+
+
+# Simple Docker Container for Jekyll Work
+
+Docker Hub: <https://registry.hub.docker.com/u/grahamc/jekyll/>
+
+Use example:
+
+```
+sudo docker run --rm -v "$PWD:/src" grahamc/jekyll build
+```
+
+or for repeated calls:
+
+```
+alias jekyll='sudo docker run --rm -v "$PWD:/src" grahamc/jekyll'
+jekyll build
+jekyll serve
+```
+
+run as a background daemon:
+```
+sudo docker run -d --rm -v "$PWD:/src" -p 4000:4000 grahamc/jekyll serve
+```
+
+## Goodies
+ - Supports pygments syntax highlighting
+ - Supports Github Pages
+ - Supports Jekyll Redirect From
+ - Supports Kramdown
+ - Supports RDiscount
+ - Supports Rouge
+
